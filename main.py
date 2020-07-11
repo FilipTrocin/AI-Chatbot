@@ -1,11 +1,13 @@
 import numpy as np
 import tensorflow as tf
 import nltk
-from nltk.stem.lancaster import LancasterStemmer as stemmer
+from nltk.stem.lancaster import LancasterStemmer
 import tflearn
 import random
 import os
 import json
+
+stemmer = LancasterStemmer()
 
 with open('dialog.json') as file:
     data = json.load(file)
@@ -26,3 +28,5 @@ for dialog in data['dialog']:
     if dialog['tag'] not in labels:
         labels.append(dialog['tag'])
 
+words = [stemmer.stem(wrds.lower()) for wrds in words]
+words = sorted(list(set(words)))  # removing duplicates from the list, sort elements in certain order
