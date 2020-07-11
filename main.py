@@ -13,16 +13,16 @@ with open('dialog.json') as file:
     data = json.load(file)
 
 
-words = []  # ['hi', 'hello','good', 'morn', 'is', 'anyon', 'ther', ...]
+dictionary = []  # ['anyon', 'good', 'hello', 'hi', 'is', 'morn', 'ther', ...]
 labels = []  # ["abilities", "age", "experience", "farewell", "greeting", ...]
-user_input = []  # ['Hi', 'Hello', 'Hey', 'Yo', 'See you', 'cya', 'Goodbye', ...]
+user_input = []  # ['hi', 'hello', 'hey', 'yo', 'see you', 'cya', 'goodby', ...]
 words_labels = []  # ['greeting', 'greeting', 'greeting', 'greeting', 'farewell', 'farewell', 'farewell', ...]
 
 for dialog in data['dialog']:
     for pattern in dialog['patterns']:
         words_list = nltk.word_tokenize(pattern)  # Separating each word and splitting symbols from them
         stemmed_tokenized = [stemmer.stem(wrd.lower()) for wrd in words_list]  # Removing prefix from every word in list
-        words.extend(stemmed_tokenized)
+        dictionary.extend(stemmed_tokenized)
         stemmed_ui = [stemmer.stem(ptrn.lower()) for ptrn in pattern.split()]
         user_input.extend(stemmed_ui)
         words_labels.append(dialog['tag'])  # Classifying each word
@@ -30,10 +30,27 @@ for dialog in data['dialog']:
     if dialog['tag'] not in labels:
         labels.append(dialog['tag'])
 
-words = sorted(list(set(words)))  # removing duplicates from the list, sort elements in certain order
+dictionary = sorted(list(set(dictionary)))  # removing duplicates from the list, sort elements in certain order
 labels = sorted(labels)
 
-training = []
-outcome = []
+training = []  # bag of words indicating whether the word exist or not
+outcome = []  # bunch of lists indicating affiliation to the label of each word
 
 empty_list = [0 for _ in range(len(labels))]
+
+count = 0
+for word in dictionary:
+    if word in user_input:
+        training.append(1)
+    else:
+        training.append(0)
+    count += 1
+
+    output_row = empty_list[:]  # Making copy of the empty_list
+
+    # Assigning 1 to the row from which the current word (based on count) comes from
+    output_row[labels.index(words_labels[count])] = 1
+    outcome.append(output_row)
+
+training = np.array(training)
+outcome = np.array(outcome)
