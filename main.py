@@ -23,9 +23,10 @@ for dialog in data['dialog']:
         words_list = nltk.word_tokenize(pattern)  # Separating each word and splitting symbols from them
         stemmed_tokenized = [stemmer.stem(wrd.lower()) for wrd in words_list]  # Removing prefix from every word in list
         dictionary.extend(stemmed_tokenized)
+
         stemmed_ui = [stemmer.stem(ptrn.lower()) for ptrn in pattern.split()]
         user_input.extend(stemmed_ui)
-        words_labels.append(dialog['tag'])  # Classifying each word
+        [words_labels.append(dialog['tag']) for each in stemmed_ui]  # Classifying each word
 
     if dialog['tag'] not in labels:
         labels.append(dialog['tag'])
@@ -44,13 +45,14 @@ for word in dictionary:
         training.append(1)
     else:
         training.append(0)
-    count += 1
 
     output_row = empty_list[:]  # Making copy of the empty_list
 
     # Assigning 1 to the row from which the current word (based on count) comes from
     output_row[labels.index(words_labels[count])] = 1
     outcome.append(output_row)
+    count += 1
+
 
 training = np.array(training)
 outcome = np.array(outcome)
