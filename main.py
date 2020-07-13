@@ -24,6 +24,8 @@ for dialog in data['dialog']:
         stemmed_tokenized = [stemmer.stem(wrd.lower()) for wrd in words_list]  # Removing prefix from every word in list
         dictionary.extend(stemmed_tokenized)
 
+        # Difference between len of dictionary and len of words labels if from not using tokenizer
+        # Tokenizer removes 'm and 's while .split does not do that
         stemmed_ui = [stemmer.stem(ptrn.lower()) for ptrn in pattern.split()]
         user_input.extend(stemmed_ui)
         [words_labels.append(dialog['tag']) for each in stemmed_ui]  # Classifying each word
@@ -31,7 +33,7 @@ for dialog in data['dialog']:
     if dialog['tag'] not in labels:
         labels.append(dialog['tag'])
 
-dictionary = sorted(list(set(dictionary)))  # removing duplicates from the list, sort elements in certain order
+# dictionary = sorted(list(set(dictionary)))  # removing duplicates from the list, sort elements in certain order (53 el.)
 labels = sorted(labels)
 
 training = []  # bag of words indicating whether the word exist or not
@@ -44,15 +46,15 @@ for word in dictionary:
     if word in user_input:
         training.append(1)
     else:
-        training.append(0)
+        training.append(0)  # only for: 'm and 's
+        continue
 
-    output_row = empty_list[:]  # Making copy of the empty_list
+    output_row = empty_list[:]  # Making copy of the "empty_list"
 
     # Assigning 1 to the row from which the current word (based on count) comes from
     output_row[labels.index(words_labels[count])] = 1
     outcome.append(output_row)
     count += 1
-
 
 training = np.array(training)
 outcome = np.array(outcome)
