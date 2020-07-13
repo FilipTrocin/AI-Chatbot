@@ -31,7 +31,7 @@
   },
   {"tag": "abilities",
   "patterns":  ["What languages you know", "What programming languages you use", "In what languages you code"],
-  "responses":  ["I know Python and Java... but I prefer coding in Python", "Python and Java... but Python is my faveourite one"],
+  "responses":  ["I know Python and Java... but I prefer coding in Python", "Python and Java... but Python is my favourite one"],
   "context_set":  ""
   },
   {"tag": "interests",
