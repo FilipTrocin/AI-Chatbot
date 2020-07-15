@@ -52,20 +52,28 @@ outcome = []  # lists indicating affiliation to the label of each word
 
 empty_list = [0 for _ in range(len(labels))]
 
-count = 0
-for word in dictionary:
-    if word in words:
-        training.append(1)
-    else:
-        training.append(0)  # only for: 'm and 's
-        continue
 
-    output_row = empty_list[:]  # Making copy of the "empty_list"
+def segregate(words_list):
+    """
+    Determining the affiliation of every word
+    ":arg: list of all words in patterns in .json file
+    """
+    for count, word in enumerate(words_list):
+        bag = []
+        if word in dictionary:
+            bag.append(1)
+        else:
+            bag.append(0)
 
-    # Assigning 1 to the row from which the current word (based on count) comes from
-    output_row[labels.index(words_labels[count])] = 1
-    outcome.append(output_row)
-    count += 1
+        output_row = empty_list[:]  # Making copy of the "empty_list"
+
+        # Assigning 1 to the row from which the current word (based on count) comes from
+        output_row[labels.index(words_labels[count])] = 1
+        training.append(bag)
+        outcome.append(output_row)
+
+
+segregate(words)
 
 training = np.array(training)
 outcome = np.array(outcome)
