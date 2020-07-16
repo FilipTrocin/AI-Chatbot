@@ -30,7 +30,7 @@
   "context_set":  ""
   },
   {"tag": "abilities",
-  "patterns":  ["What languages you know", "What programming languages you use", "In what languages you code"],
+  "patterns":  ["What languages you know", "What programming languages you use", "In what languages you can code"],
   "responses":  ["I know Python and Java... but I prefer coding in Python", "Python and Java... but Python is my favourite one"],
   "context_set":  ""
   },
