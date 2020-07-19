@@ -57,10 +57,13 @@ def segregate(words_list):
     """
     for count, word in enumerate(words_list):
         bag = []
-        if word in dictionary:
-            bag.append(1)
-        else:
-            bag.append(0)
+
+        stem = [stemmer.stem(every.lower()) for every in word]
+        for wrd in dictionary:
+            if wrd in stem:
+                bag.append(1)
+            else:
+                bag.append(0)
 
         output_row = empty_list[:]  # Making copy of the "empty_list"
 
