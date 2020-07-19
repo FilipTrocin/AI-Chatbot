@@ -78,12 +78,13 @@ outcome = np.array(outcome)
 tf.reset_default_graph()  # resetting previous settings
 
 net = tflearn.input_data(shape=[None, len(training[0])])
-net = tflearn.fully_connected(net, 10, activation='softmax')
-net = tflearn.fully_connected(net, len(outcome[0]), activation='sigmoid')
+net = tflearn.fully_connected(net, 8)
+net = tflearn.fully_connected(net, 8)
+net = tflearn.fully_connected(net, len(outcome[0]), activation='softmax')
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 
-model.fit(training, outcome, n_epoch=3000, batch_size=6, show_metric=True)
+model.fit(training, outcome, n_epoch=1000, batch_size=8, show_metric=True)
 
 model.save("chatbot_model.tflearn")
