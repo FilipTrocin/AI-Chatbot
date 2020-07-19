@@ -30,11 +30,8 @@ def extracter(dict, words, wrds_labels, wrd_class):
                                  words_list]  # Removing prefix from every word in list
             dict.extend(stemmed_tokenized)
 
-            # Difference between len of dictionary and len of words labels if from not using tokenizer
-            # Tokenizer removes 'm and 's while .split does not do that
-            stemmed_ui = [stemmer.stem(ptrn.lower()) for ptrn in pattern.split()]
-            words.extend(stemmed_ui)
-            [wrds_labels.append(dialog['tag']) for _ in stemmed_ui]  # Classifying each word
+            words.append(words_list)
+            [wrds_labels.append(dialog['tag']) for _ in words_list]  # Classifying each word
 
         if dialog['tag'] not in wrd_class:
             wrd_class.append(dialog['tag'])
