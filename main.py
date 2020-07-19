@@ -88,6 +88,8 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 
-model.fit(training, outcome, n_epoch=1000, batch_size=8, show_metric=True)
-
-model.save("chatbot_model.tflearn")
+try:
+    model.load("chatbot_model.tflearn")
+except:
+    model.fit(training, outcome, n_epoch=1000, batch_size=8, show_metric=True)
+    model.save("chatbot_model.tflearn")
