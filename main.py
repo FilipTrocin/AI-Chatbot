@@ -3,9 +3,8 @@ import tensorflow as tf
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
 import tflearn
-import random
-import os
 import json
+import random
 
 stemmer = LancasterStemmer()
 
@@ -87,9 +86,12 @@ net = tflearn.fully_connected(net, len(outcome[0]), activation='softmax')
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
-
 try:
     model.load("chatbot_model.tflearn")
 except:
-    model.fit(training, outcome, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save("chatbot_model.tflearn")
+    # Training part
+    model = tflearn.DNN(net)
+    model.fit(training, outcome, n_epoch=1200, batch_size=8, show_metric=True)
+    model.save('chatbot_model.tflearn')
+
+
