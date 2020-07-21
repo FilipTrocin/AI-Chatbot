@@ -1,46 +1,53 @@
 {"dialog": [
   {"tag": "greeting",
-  "patterns":  ["Hi", "Hello", "Hey", "Good Morning", "Is anyone there", "Knock knock", "Whats upp", "How are you", "Yo"],
+  "patterns":  ["Hi", "Hello", "Hey", "Good Morning", "Is anyone there", "Knock knock", "Whats upp", "Yo"],
   "responses":  ["Hi there, how can I help you ?", "Yo! What bring you to me ?", "Hey, what's the problem"],
   "context_set":  ""
   },
   {"tag": "farewell",
-  "patterns":  ["See you", "cya", "Goodbye", "Have a good day", "I'm leaving", "I'm escaping", "Escape", "leave"],
+  "patterns":  ["See you", "cya", "Goodbye", "Have a good day", "I'm leaving", "I'm escaping", "Escape", "leave", "nighty"],
   "responses":  ["Take care!", "Hopefully see you later!", "Goodbye!", "Bye Bye!"],
   "context_set":  ""
   },
   {"tag": "age",
-  "patterns":  ["What's your age", "How old is Filip", "How old are you"],
+  "patterns":  ["your age", "How old is Filip", "How old are you ?", "What is your age ?", "What's the age of Filip ?",
+  "age of yours", "tell me your age", "are you 21"],
   "responses":  ["I'm 21 now", "Filip is 21 years old", "21 years young"],
   "context_set":  ""
   },
   {"tag": "name",
-  "patterns":  ["What's your name", "What should I call you", "what is your name"],
+  "patterns":  ["your name", "call you", "How should I call you ?", "Who are you", "name", "Are you Filip ?", "your nick"],
   "responses":  ["I'm Filip, nice to meet you", "Just call me Filip"],
   "context_set":  ""
   },
   {"tag": "study",
-  "patterns":  ["Where are you studying", "What's your university", "What is your university"],
-  "responses":  ["I study at Newcastle University", "I'm student of Newcastle University"],
+  "patterns":  ["Where are you studying ?", "What's your university ?", "your university", "your uni",
+   "your major", "your filed of study", "Do you study computer science ?"],
+  "responses":  ["I study CS at Newcastle University", "I'm student of CS at Newcastle University"],
   "context_set":  ""
   },
   {"tag": "striving",
-  "patterns":  ["What's your goal", "Who you want to be", "What is your goal", "What is your objective", "Who you want to became"],
+  "patterns":  ["What's your goal", "Who you want to be ?", "What is your goal?", "What is your objective?", "Who you want to became",
+  "Where you look yourself", "What are you striving for", "What's your ambition", "Why computer science"],
   "responses":  ["I want to be a ML engineer", "Striving to become ML engineer"],
   "context_set":  ""
   },
   {"tag": "abilities",
-  "patterns":  ["What languages you know", "What programming languages you use", "In what languages you can code"],
+  "patterns":  ["What languages you know", "What programming languages you use", "In what languages you can code", "You know python",
+    "Are you familiar with java", "What are your abilities", "can you code", "any languages", "What skills you have" ],
   "responses":  ["I know Python and Java... but I prefer coding in Python", "Python and Java... but Python is my favourite one"],
   "context_set":  ""
   },
   {"tag": "interests",
-  "patterns":  ["What's your interest", "What are you interested in", "What are your interests", "What do you like"],
+  "patterns":  ["What's your interest", "What are you interested in", "What are your interests", "What do you like",
+    "Do you have any hobby", "leisure time", "free time", "What you like to do", "What you do when no working"],
   "responses":  ["I love swimming and riding MTB... so these are the things I like to do in a spare moment"],
   "context_set":  ""
   },
   {"tag": "experience",
-  "patterns":  ["You have any experience", "What experience do you have", "What's your experience"],
+  "patterns":  ["any experience", "experience do you have", "your experience",
+    "How experienced are you", "you been working before", "you worked before", "any previous job",
+    "What projects you did", "Do you have projects portfolio"],
   "responses":  ["Although I haven't worked in a company before, apart from the university work, I was doing many side projects for fun during which I have learnt a lot! You can look them at https://github.com/FilipTrocin"],
   "context_set":  ""
   }
