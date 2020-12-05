@@ -1,7 +1,7 @@
 {"dialog": [
   {"tag": "greeting",
   "patterns":  ["Hi", "Hello", "Hey", "Good Morning", "Is anyone there", "Knock knock", "Whats upp", "Yo"],
-  "responses":  ["Hi there, how can I help you ?", "Yo! What bring you to me ?", "Hey, what's the problem"],
+  "responses":  ["Hi there, how can I help you ?", "Hey, nice to see you here!"],
   "context_set":  ""
   },
   {"tag": "farewell",
@@ -29,19 +29,19 @@
   {"tag": "striving",
   "patterns":  ["What's your goal", "Who you want to be ?", "What is your goal?", "What is your objective?", "Who you want to became",
   "Where you look yourself", "What are you striving for", "What's your ambition", "Why computer science"],
-  "responses":  ["I want to be a ML engineer", "Striving to become ML engineer"],
+  "responses":  ["There are several interesting sectors in Computer Science but I am the most excited about cybersecurtity and Machine Leaning"],
   "context_set":  ""
   },
   {"tag": "abilities",
   "patterns":  ["What languages you know", "What programming languages you use", "In what languages you can code", "You know python",
     "Are you familiar with java", "What are your abilities", "can you code", "any languages", "What skills you have" ],
-  "responses":  ["I know Python and Java... but I prefer coding in Python", "Python and Java... but Python is my favourite one"],
+  "responses":  ["Yes! I feel comfortable working both with Java SE and Python", "I can code in Python and Java SE"],
   "context_set":  ""
   },
   {"tag": "interests",
   "patterns":  ["What's your interest", "What are you interested in", "What are your interests", "What do you like",
     "Do you have any hobby", "leisure time", "free time", "What you like to do", "What you do when no working"],
-  "responses":  ["I love swimming and riding MTB... so these are the things I like to do in a spare moment"],
+  "responses":  ["Swimming and riding MTB! My two definitely most favorite pastime activities!"],
   "context_set":  ""
   },
   {"tag": "experience",
